@@ -179,7 +179,7 @@ function App() {
                     <img 
                       src={study.image} 
                       alt={study.business}
-                      className="w-full h-64 md:h-full object-cover"
+                     className={`w-full h-64 md:h-full ${index === 0 ? 'object-contain bg-gray-100' : 'object-cover'}`}
                     />
                   </div>
                   <div className="md:w-1/2 p-8 md:p-12">
