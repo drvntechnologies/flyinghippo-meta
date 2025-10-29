@@ -331,6 +331,98 @@ function App() {
         </div>
       </section>
 
+      {/* Flying Hippo vs Traditional Agency Section */}
+      <section className="py-20 px-4 bg-white">
+        <div className="max-w-6xl mx-auto">
+          <div className="text-center mb-16">
+            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+              Flying Hippo vs. Traditional Agency
+            </h2>
+            <p className="text-lg text-gray-600">
+              See the difference in approach and results
+            </p>
+          </div>
+
+          <div className="grid md:grid-cols-2 gap-8">
+            {/* Flying Hippo Column */}
+            <div className="bg-gradient-to-br from-green-50 to-green-100 rounded-2xl p-8 border-2 border-green-200">
+              <div className="text-center mb-8">
+                <div className="inline-flex items-center justify-center w-16 h-16 bg-green-600 rounded-full mb-4">
+                  <CheckCircle className="w-8 h-8 text-white" />
+                </div>
+                <h3 className="text-2xl font-bold text-green-800 mb-2">With Flying Hippo</h3>
+                <p className="text-green-700">Results-driven approach with transparency</p>
+              </div>
+              
+              <div className="space-y-4">
+                <div className="flex items-start">
+                  <CheckCircle className="w-5 h-5 text-green-600 mr-3 mt-1 flex-shrink-0" />
+                  <span className="text-gray-800 font-medium">No 12 Month Contracts</span>
+                </div>
+                <div className="flex items-start">
+                  <CheckCircle className="w-5 h-5 text-green-600 mr-3 mt-1 flex-shrink-0" />
+                  <span className="text-gray-800 font-medium">An increase in leads with a guarantee</span>
+                </div>
+                <div className="flex items-start">
+                  <CheckCircle className="w-5 h-5 text-green-600 mr-3 mt-1 flex-shrink-0" />
+                  <span className="text-gray-800 font-medium">Lead tracking</span>
+                </div>
+                <div className="flex items-start">
+                  <CheckCircle className="w-5 h-5 text-green-600 mr-3 mt-1 flex-shrink-0" />
+                  <span className="text-gray-800 font-medium">24/7 direct group chat support</span>
+                </div>
+                <div className="flex items-start">
+                  <CheckCircle className="w-5 h-5 text-green-600 mr-3 mt-1 flex-shrink-0" />
+                  <span className="text-gray-800 font-medium">Direct lead reporting</span>
+                </div>
+                <div className="flex items-start">
+                  <CheckCircle className="w-5 h-5 text-green-600 mr-3 mt-1 flex-shrink-0" />
+                  <span className="text-gray-800 font-medium">Monthly meetings</span>
+                </div>
+              </div>
+            </div>
+
+            {/* Traditional Agency Column */}
+            <div className="bg-gradient-to-br from-red-50 to-red-100 rounded-2xl p-8 border-2 border-red-200">
+              <div className="text-center mb-8">
+                <div className="inline-flex items-center justify-center w-16 h-16 bg-red-600 rounded-full mb-4">
+                  <X className="w-8 h-8 text-white" />
+                </div>
+                <h3 className="text-2xl font-bold text-red-800 mb-2">Other Agencies</h3>
+                <p className="text-red-700">Old-school methods with poor results</p>
+              </div>
+              
+              <div className="space-y-4">
+                <div className="flex items-start">
+                  <X className="w-5 h-5 text-red-600 mr-3 mt-1 flex-shrink-0" />
+                  <span className="text-gray-800 font-medium">12+ Month SEO engagements</span>
+                </div>
+                <div className="flex items-start">
+                  <X className="w-5 h-5 text-red-600 mr-3 mt-1 flex-shrink-0" />
+                  <span className="text-gray-800 font-medium">No guarantee. Spray and Pray SEO</span>
+                </div>
+                <div className="flex items-start">
+                  <X className="w-5 h-5 text-red-600 mr-3 mt-1 flex-shrink-0" />
+                  <span className="text-gray-800 font-medium">No lead tracking</span>
+                </div>
+                <div className="flex items-start">
+                  <X className="w-5 h-5 text-red-600 mr-3 mt-1 flex-shrink-0" />
+                  <span className="text-gray-800 font-medium">Email only communication</span>
+                </div>
+                <div className="flex items-start">
+                  <X className="w-5 h-5 text-red-600 mr-3 mt-1 flex-shrink-0" />
+                  <span className="text-gray-800 font-medium">Vague reports with metrics that don't matter</span>
+                </div>
+                <div className="flex items-start">
+                  <X className="w-5 h-5 text-red-600 mr-3 mt-1 flex-shrink-0" />
+                  <span className="text-gray-800 font-medium">Little to no meetings or support</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* Testimonials Section */}
       <section className="py-20 px-4 bg-gray-50">
         <div className="max-w-6xl mx-auto">
