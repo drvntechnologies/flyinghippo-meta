@@ -4,6 +4,30 @@ import MultiStepForm from './components/MultiStepForm';
 
 function App() {
   const [isFormOpen, setIsFormOpen] = React.useState(false);
+  const [visiblePhases, setVisiblePhases] = React.useState<number[]>([]);
+
+  React.useEffect(() => {
+    const handleScroll = () => {
+      const phases = document.querySelectorAll('.timeline-phase');
+      const newVisiblePhases: number[] = [];
+      
+      phases.forEach((phase, index) => {
+        const rect = phase.getBoundingClientRect();
+        const windowHeight = window.innerHeight;
+        
+        if (rect.top < windowHeight * 0.8) {
+          newVisiblePhases.push(index);
+        }
+      });
+      
+      setVisiblePhases(newVisiblePhases);
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    handleScroll(); // Check initial state
+    
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
 
   const testimonials = [
     {
@@ -134,53 +158,94 @@ function App() {
             </p>
           </div>
 
-          <div className="space-y-8">
-            <div className="bg-gradient-to-r from-blue-50 to-blue-100 rounded-2xl p-8 border-l-4 border-blue-600">
-              <div className="flex items-center mb-4">
-                <div className="bg-blue-600 text-white rounded-full w-8 h-8 flex items-center justify-center font-bold mr-4">
-                  1
-                </div>
-                <h3 className="text-2xl font-bold text-gray-900">Phase 1 - Competitor Analysis</h3>
-              </div>
-              <p className="text-gray-700 text-lg leading-relaxed">
-                We look at your market conditions to see what you need to do to help us on our optimization efforts. This could be getting more reviews to your profile, adjusting settings to your profile, or changing up copy.
-              </p>
+          <div className="relative">
+            {/* Timeline Line */}
+            <div className="absolute left-8 top-0 bottom-0 w-1 bg-gray-200 hidden md:block">
+              <div 
+                className="bg-gradient-to-b from-blue-600 via-green-600 via-purple-600 to-orange-600 w-full transition-all duration-1000 ease-out"
+                style={{ 
+                  height: `${Math.min((visiblePhases.length / 4) * 100, 100)}%`,
+                  opacity: visiblePhases.length > 0 ? 1 : 0
+                }}
+              ></div>
             </div>
 
-            <div className="bg-gradient-to-r from-green-50 to-green-100 rounded-2xl p-8 border-l-4 border-green-600">
-              <div className="flex items-center mb-4">
-                <div className="bg-green-600 text-white rounded-full w-8 h-8 flex items-center justify-center font-bold mr-4">
-                  2
+            <div className="space-y-12">
+              <div className={`timeline-phase relative transition-all duration-700 transform ${
+                visiblePhases.includes(0) ? 'translate-x-0 opacity-100' : 'translate-x-8 opacity-0'
+              }`}>
+                <div className="bg-gradient-to-r from-blue-50 to-blue-100 rounded-2xl p-8 border-l-4 border-blue-600 md:ml-16">
+                  {/* Timeline Dot */}
+                  <div className="absolute left-6 top-8 w-6 h-6 bg-blue-600 rounded-full border-4 border-white shadow-lg hidden md:block transform -translate-x-1/2"></div>
+                  
+                  <div className="flex items-center mb-4">
+                    <div className="bg-blue-600 text-white rounded-full w-8 h-8 flex items-center justify-center font-bold mr-4">
+                      1
+                    </div>
+                    <h3 className="text-2xl font-bold text-gray-900">Phase 1 - Competitor Analysis</h3>
+                  </div>
+                  <p className="text-gray-700 text-lg leading-relaxed">
+                    We look at your market conditions to see what you need to do to help us on our optimization efforts. This could be getting more reviews to your profile, adjusting settings to your profile, or changing up copy.
+                  </p>
                 </div>
-                <h3 className="text-2xl font-bold text-gray-900">Phase 2 - Local Indexing</h3>
               </div>
-              <p className="text-gray-700 text-lg leading-relaxed">
-                The phone books, remember those? They still exist as business directories. It's our job to make sure that these directories match up with your Google Profile. Google's crawlers look at these sources for your name, address, and phone number to make sure they match up. In some smaller markets, this is one of the most important things that needs to be done in order to rank your profile in the top 3.
-              </p>
-            </div>
 
-            <div className="bg-gradient-to-r from-purple-50 to-purple-100 rounded-2xl p-8 border-l-4 border-purple-600">
-              <div className="flex items-center mb-4">
-                <div className="bg-purple-600 text-white rounded-full w-8 h-8 flex items-center justify-center font-bold mr-4">
-                  3
+              <div className={`timeline-phase relative transition-all duration-700 delay-200 transform ${
+                visiblePhases.includes(1) ? 'translate-x-0 opacity-100' : 'translate-x-8 opacity-0'
+              }`}>
+                <div className="bg-gradient-to-r from-green-50 to-green-100 rounded-2xl p-8 border-l-4 border-green-600 md:ml-16">
+                  {/* Timeline Dot */}
+                  <div className="absolute left-6 top-8 w-6 h-6 bg-green-600 rounded-full border-4 border-white shadow-lg hidden md:block transform -translate-x-1/2"></div>
+                  
+                  <div className="flex items-center mb-4">
+                    <div className="bg-green-600 text-white rounded-full w-8 h-8 flex items-center justify-center font-bold mr-4">
+                      2
+                    </div>
+                    <h3 className="text-2xl font-bold text-gray-900">Phase 2 - Local Indexing</h3>
+                  </div>
+                  <p className="text-gray-700 text-lg leading-relaxed">
+                    The phone books, remember those? They still exist as business directories. It's our job to make sure that these directories match up with your Google Profile. Google's crawlers look at these sources for your name, address, and phone number to make sure they match up. In some smaller markets, this is one of the most important things that needs to be done in order to rank your profile in the top 3.
+                  </p>
                 </div>
-                <h3 className="text-2xl font-bold text-gray-900">Phase 3 - Technical Foundations</h3>
               </div>
-              <p className="text-gray-700 text-lg leading-relaxed">
-                We don't mean to make this sound like a black box, but it's where the magic happens. Using Google's own API, we create relevant backlinks to your business profile. Usually this involves creating tens of thousands of links over the course of a few months.
-              </p>
-            </div>
 
-            <div className="bg-gradient-to-r from-orange-50 to-orange-100 rounded-2xl p-8 border-l-4 border-orange-600">
-              <div className="flex items-center mb-4">
-                <div className="bg-orange-600 text-white rounded-full w-8 h-8 flex items-center justify-center font-bold mr-4">
-                  4
+              <div className={`timeline-phase relative transition-all duration-700 delay-400 transform ${
+                visiblePhases.includes(2) ? 'translate-x-0 opacity-100' : 'translate-x-8 opacity-0'
+              }`}>
+                <div className="bg-gradient-to-r from-purple-50 to-purple-100 rounded-2xl p-8 border-l-4 border-purple-600 md:ml-16">
+                  {/* Timeline Dot */}
+                  <div className="absolute left-6 top-8 w-6 h-6 bg-purple-600 rounded-full border-4 border-white shadow-lg hidden md:block transform -translate-x-1/2"></div>
+                  
+                  <div className="flex items-center mb-4">
+                    <div className="bg-purple-600 text-white rounded-full w-8 h-8 flex items-center justify-center font-bold mr-4">
+                      3
+                    </div>
+                    <h3 className="text-2xl font-bold text-gray-900">Phase 3 - Technical Foundations</h3>
+                  </div>
+                  <p className="text-gray-700 text-lg leading-relaxed">
+                    We don't mean to make this sound like a black box, but it's where the magic happens. Using Google's own API, we create relevant backlinks to your business profile. Usually this involves creating tens of thousands of links over the course of a few months.
+                  </p>
                 </div>
-                <h3 className="text-2xl font-bold text-gray-900">Phase 4 - Additional Backlinking</h3>
               </div>
-              <p className="text-gray-700 text-lg leading-relaxed">
-                While Google's own API gets us far, we also get backlinks from other 3rd party sources and indexes to further amplify the profile.
-              </p>
+
+              <div className={`timeline-phase relative transition-all duration-700 delay-600 transform ${
+                visiblePhases.includes(3) ? 'translate-x-0 opacity-100' : 'translate-x-8 opacity-0'
+              }`}>
+                <div className="bg-gradient-to-r from-orange-50 to-orange-100 rounded-2xl p-8 border-l-4 border-orange-600 md:ml-16">
+                  {/* Timeline Dot */}
+                  <div className="absolute left-6 top-8 w-6 h-6 bg-orange-600 rounded-full border-4 border-white shadow-lg hidden md:block transform -translate-x-1/2"></div>
+                  
+                  <div className="flex items-center mb-4">
+                    <div className="bg-orange-600 text-white rounded-full w-8 h-8 flex items-center justify-center font-bold mr-4">
+                      4
+                    </div>
+                    <h3 className="text-2xl font-bold text-gray-900">Phase 4 - Additional Backlinking</h3>
+                  </div>
+                  <p className="text-gray-700 text-lg leading-relaxed">
+                    While Google's own API gets us far, we also get backlinks from other 3rd party sources and indexes to further amplify the profile.
+                  </p>
+                </div>
+              </div>
             </div>
           </div>
         </div>
