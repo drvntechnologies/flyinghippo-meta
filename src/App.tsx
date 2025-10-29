@@ -1,5 +1,5 @@
 import React from 'react';
-import { Play, Star, ArrowRight, CheckCircle, TrendingUp, MapPin, Users, Calendar } from 'lucide-react';
+import { Play, Star, ArrowRight, CheckCircle, TrendingUp, MapPin, Users, Calendar, UserCheck, MessageCircle, Target, Video, BarChart3, Shield, Link, ClipboardList } from 'lucide-react';
 import MultiStepForm from './components/MultiStepForm';
 
 function App() {
@@ -118,6 +118,86 @@ function App() {
             Get Started Now
           </button>
           <p className="text-sm text-gray-500 mt-4">Free consultation • No obligation • Results guaranteed</p>
+        </div>
+      </section>
+
+      {/* What You Get Section */}
+      <section className="py-20 px-4 bg-gradient-to-br from-blue-50 to-indigo-50">
+        <div className="max-w-6xl mx-auto">
+          <div className="text-center mb-16">
+            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+              What You Get
+            </h2>
+            <p className="text-lg text-gray-600">
+              Everything you need to dominate your local market
+            </p>
+          </div>
+
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+            <div className="bg-white rounded-xl p-6 shadow-lg hover:shadow-xl transition-shadow duration-300">
+              <div className="flex items-center justify-center w-12 h-12 bg-blue-100 rounded-lg mb-4">
+                <UserCheck className="w-6 h-6 text-blue-600" />
+              </div>
+              <h3 className="text-xl font-semibold text-gray-900 mb-3">Dedicated Account Manager</h3>
+              <p className="text-gray-600">Keeping your campaign on track.</p>
+            </div>
+
+            <div className="bg-white rounded-xl p-6 shadow-lg hover:shadow-xl transition-shadow duration-300">
+              <div className="flex items-center justify-center w-12 h-12 bg-green-100 rounded-lg mb-4">
+                <MessageCircle className="w-6 h-6 text-green-600" />
+              </div>
+              <h3 className="text-xl font-semibold text-gray-900 mb-3">24/7 Group Chat Access</h3>
+              <p className="text-gray-600">We put you directly into our Slack with direct access to your account manager for continuous support.</p>
+            </div>
+
+            <div className="bg-white rounded-xl p-6 shadow-lg hover:shadow-xl transition-shadow duration-300">
+              <div className="flex items-center justify-center w-12 h-12 bg-purple-100 rounded-lg mb-4">
+                <Target className="w-6 h-6 text-purple-600" />
+              </div>
+              <h3 className="text-xl font-semibold text-gray-900 mb-3">Specialized Experts Working for You</h3>
+              <p className="text-gray-600">Our account managers work specifically with home service based businesses. We aren't juggling multiple different accounts and industries like other agencies.</p>
+            </div>
+
+            <div className="bg-white rounded-xl p-6 shadow-lg hover:shadow-xl transition-shadow duration-300">
+              <div className="flex items-center justify-center w-12 h-12 bg-red-100 rounded-lg mb-4">
+                <Video className="w-6 h-6 text-red-600" />
+              </div>
+              <h3 className="text-xl font-semibold text-gray-900 mb-3">2 Video Meetings in Month 1</h3>
+              <p className="text-gray-600">We start your campaign off with immediate actions and keep you in the loop the whole time.</p>
+            </div>
+
+            <div className="bg-white rounded-xl p-6 shadow-lg hover:shadow-xl transition-shadow duration-300">
+              <div className="flex items-center justify-center w-12 h-12 bg-orange-100 rounded-lg mb-4">
+                <BarChart3 className="w-6 h-6 text-orange-600" />
+              </div>
+              <h3 className="text-xl font-semibold text-gray-900 mb-3">Ongoing Monthly Strategy Calls</h3>
+              <p className="text-gray-600">Reporting, lead tracking, and progress reports.</p>
+            </div>
+
+            <div className="bg-white rounded-xl p-6 shadow-lg hover:shadow-xl transition-shadow duration-300">
+              <div className="flex items-center justify-center w-12 h-12 bg-teal-100 rounded-lg mb-4">
+                <Shield className="w-6 h-6 text-teal-600" />
+              </div>
+              <h3 className="text-xl font-semibold text-gray-900 mb-3">Full Google MyBusiness Profile Optimization</h3>
+              <p className="text-gray-600">The first major step in optimizing your business on Google.</p>
+            </div>
+
+            <div className="bg-white rounded-xl p-6 shadow-lg hover:shadow-xl transition-shadow duration-300">
+              <div className="flex items-center justify-center w-12 h-12 bg-indigo-100 rounded-lg mb-4">
+                <Link className="w-6 h-6 text-indigo-600" />
+              </div>
+              <h3 className="text-xl font-semibold text-gray-900 mb-3">Custom Backlinking Campaigns</h3>
+              <p className="text-gray-600">Taking your Google Profile higher than traditional agencies</p>
+            </div>
+
+            <div className="bg-white rounded-xl p-6 shadow-lg hover:shadow-xl transition-shadow duration-300">
+              <div className="flex items-center justify-center w-12 h-12 bg-yellow-100 rounded-lg mb-4">
+                <ClipboardList className="w-6 h-6 text-yellow-600" />
+              </div>
+              <h3 className="text-xl font-semibold text-gray-900 mb-3">Detailed Lead Tracking</h3>
+              <p className="text-gray-600">We track your entire campaign from A to Z so you know exactly when you get a lead from our campaign efforts.</p>
+            </div>
+          </div>
         </div>
       </section>
 
