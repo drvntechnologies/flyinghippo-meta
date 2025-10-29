@@ -1,5 +1,5 @@
 import React from 'react';
-import { Play, Star, ArrowRight, CheckCircle, TrendingUp, MapPin, Users, Calendar, UserCheck, MessageCircle, Target, Video, BarChart3, Shield, Link, ClipboardList } from 'lucide-react';
+import { Play, Star, ArrowRight, CheckCircle, TrendingUp, MapPin, Users, Calendar, UserCheck, MessageCircle, Target, Video, BarChart3, Shield, Link, ClipboardList, X } from 'lucide-react';
 import MultiStepForm from './components/MultiStepForm';
 
 function App() {
